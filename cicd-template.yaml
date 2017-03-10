@@ -11,29 +11,18 @@ metadata:
     iconClass: icon-jenkins
     tags: instant-app,jenkins,gogs,nexus,cicd
   name: cicd
-message: The CI/CD infrastructure composed of Jenkins, Gogs, Nexus Repository and SonarQube services has been created in your project.  Jenkins username/password are admin/${JENKINS_PASSWORD} and Gogs username/password are gogs/${GOGS_PASSWORD}.  The tutorial at https://github.com/OpenShiftDemos/openshift-cd-demo/tree/openshift-3.3 contains more information about using this CI/CD demo.
+message: The CI/CD infrastructure composed of Jenkins, Nexus Repository and SonarQube services has been created in your project.  Jenkins username/password are admin/${JENKINS_PASSWORD}.  The tutorial at https://github.com/OpenShiftDemos/openshift-cd-demo/tree/openshift-3.3 contains more information about using this CI/CD demo.
 parameters:
 - description: Password for the Jenkins user.
   displayName: Jenkins Password
   value: password
   name: JENKINS_PASSWORD
   required: true
-- description: Password for the Gogs user.
-  displayName: Gogs Password
-  value: password
-  name: GOGS_PASSWORD
-  required: true
 - description: Username for PostgreSQL backend
   displayName: PostgreSQL User
   from: user[A-Z0-9]{3}
   generate: expression
   name: POSTGRESQL_USER
-  required: true
-- description: Password for Gogs Git Server PostgreSQL backend
-  displayName: Gogs' PostgreSQL Password
-  from: '[a-zA-Z0-9]{16}'
-  generate: expression
-  name: GOGS_POSTGRESQL_PASSWORD
   required: true
 - description: Password for SonarQube Server PostgreSQL backend
   displayName: SonarQube's PostgreSQL Password
@@ -367,7 +356,7 @@ objects:
           name: nexus:2.13.0-01
       type: ImageChange
   status: {}
-# Gogds
+# Gogs
 # SonarQube
 - apiVersion: v1
   kind: Service
