@@ -20,14 +20,12 @@ parameters:
   required: true
 - description: Username for PostgreSQL backend
   displayName: PostgreSQL User
-  from: user[A-Z0-9]{3}
-  generate: expression
+  value: sonar
   name: POSTGRESQL_USER
   required: true
 - description: Password for SonarQube Server PostgreSQL backend
   displayName: SonarQube's PostgreSQL Password
-  from: '[a-zA-Z0-9]{16}'
-  generate: expression
+  value: sonar
   name: SONAR_POSTGRESQL_PASSWORD
   required: true
 - description: DEV project name
